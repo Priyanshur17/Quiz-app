@@ -8,7 +8,6 @@ const sendMail = async (from, to, subject, text, html) => {
         text: text, // plain text body
         html: html, // html body
     });
-    console.log("Message sent: %s", info.messageId);
 }
 
 export default sendMail;

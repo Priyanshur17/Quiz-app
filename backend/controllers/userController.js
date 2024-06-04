@@ -55,14 +55,13 @@ class UserController {
 
             const token = generateToken(user._id, '10m');
             const link = `${process.env.FRONTEND_URL}/reset-password/${user._id}/${token}`;
-            console.log(link);
             const from = process.env.USER_EMAIL;
             const to = email;
             const subject = "Reset Password"
             const text = "Verify your email"
             const html = `<p>Click <a href=${link}>here</a> to reset your password</p>
             <P>This link is valid for 10 minutes</p>`;
-            // sendMail(from, to, subject, text, html);
+            sendMail(from, to, subject, text, html);
             return res.status(200).send({ success: true, message: "Reset Password link is sent to your email" })
         }   
         catch (error) {
@@ -122,14 +121,13 @@ class UserController {
             
             const token = generateToken(newUser._id, '10m');
             const link = `${process.env.FRONTEND_URL}/verify-email/${newUser._id}/${token}`;
-            console.log(link);
             const from = process.env.USER_EMAIL;
             const to = email;
             const subject = "Email Verification"
             const text = "Verify your email"
             const html = `<p>Click <a href=${link}>here</a> to verify your email</p>
             <P>This link is valid for 10 minutes</p>`;
-            // sendMail(from, to, subject, text, html);
+            sendMail(from, to, subject, text, html);
             return res.status(201).send({ success: true, message: "User registration successful. Verify you email." })  
         } 
         catch (error) {

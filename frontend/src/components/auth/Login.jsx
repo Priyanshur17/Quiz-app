@@ -44,7 +44,6 @@ const Login = () => {
             setPassword('');
             localStorage.setItem('userInfo', JSON.stringify(data.user));
             const from = location.state?.from?.pathname || '/';
-            console.log(from);
             setTimeout(() => navigate(from), 1000);
         } 
         catch (error) {

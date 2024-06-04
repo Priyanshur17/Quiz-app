@@ -5,24 +5,26 @@ import Feedback from '../models/feedbackModel.js';
 import { isValidObjectId } from 'mongoose';
 
 const isValidQuestion = (question) => {
-	if (
-		question.title &&
-		question.options &&
-		question.options.length >= 2 &&
-		question.answers &&
-        question.answers.length >= 1 &&
-        question.answers.some(answer => answer>=0 && answer<question.options.length)
-	) {
-		return true;
-	} 
+    if (
+        typeof question.title === 'string' && question.title.trim() !== '' && // Ensure title is a non-empty string
+        Array.isArray(question.options) && question.options.length >= 2 && // Ensure options is an array with at least 2 items
+        Array.isArray(question.answers) && question.answers.length >= 1 && // Ensure answers is an array with at least 1 item
+        question.answers.every(answer => 
+            typeof answer === 'number' && 
+            answer >= 0 && 
+            answer < question.options.length // Ensure each answer is a valid index in options array
+        )
+    ) {
+        return true;
+    }
     return false;
-}
+};
 
 class QuizController {
     static createQuiz = async (req, res) => {
         try {
             const { title, questions } = req.body;
-            console.log(questions);
+        
             if(!title) {
                 return res.status(400).send({ success: false, message: "Title is empty" });
             }
@@ -75,8 +77,6 @@ class QuizController {
                 numberOfAnswers: question.answers.length,
                 answers: undefined  // Removes the answers field
             }));
-
-            console.log(quiz);
             
             return res.status(200).send({ success: true, quiz });
         } 
