@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --toastify-color-light: #f8fafc; /* light grayish-blue */
+    --toastify-color-dark: #1f2937; /* dark grayish-blue */
+    --toastify-color-info: #3b82f6; /* blue */
+    --toastify-color-success: #10b981; /* green */
+    --toastify-color-warning: #f59e0b; /* amber */
+    --toastify-color-error: #ef4444; /* red */
+    --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+    --toastify-icon-color-info: var(--toastify-color-info);
+    --toastify-icon-color-success: var(--toastify-color-success);
+    --toastify-icon-color-warning: var(--toastify-color-warning);
+    --toastify-icon-color-error: var(--toastify-color-error);
+
+    --toastify-toast-width: 320px;
+    --toastify-toast-background: var(--toastify-color-light);
+    --toastify-toast-min-height: 64px;
+    --toastify-toast-max-height: 800px;
+    --toastify-font-family: 'Inter', sans-serif;
+    --toastify-z-index: 9999;
+
+    --toastify-text-color-light: #1f2937; /* dark grayish-blue */
+    --toastify-text-color-dark: #f8fafc; /* light grayish-blue */
+
+    /* Used only for colored theme */
+    --toastify-text-color-info: #ffffff;
+    --toastify-text-color-success: #ffffff;
+    --toastify-text-color-warning: #ffffff;
+    --toastify-text-color-error: #ffffff;
+
+    --toastify-spinner-color: #6b7280; /* cool gray */
+    --toastify-spinner-color-empty-area: #d1d5db; /* cool gray light */
+
+    /* Used when no type is provided */
+    --toastify-color-progress-light: linear-gradient(
+        to right,
+        #3b82f6, /* blue */
+        #10b981, /* green */
+        #f59e0b, /* amber */
+        #ef4444  /* red */
+    );
+
+    /* Used when no type is provided */
+    --toastify-color-progress-dark: #bb86fc; /* purple */
+    --toastify-color-progress-info: var(--toastify-color-info);
+    --toastify-color-progress-success: var(--toastify-color-success);
+    --toastify-color-progress-warning: var(--toastify-color-warning);
+    --toastify-color-progress-error: var(--toastify-color-error);
+
+    /* Used to control the opacity of the progress trail */
+    --toastify-color-progress-bgo: 0.2;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
