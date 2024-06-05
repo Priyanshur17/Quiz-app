@@ -79,7 +79,7 @@ const AttemptedQuizzes = () => {
             attempts.length ? attempts.map((attempt) => (
               <QuizListItem key={attempt._id} id={attempt._id} quiz={attempt.quizId} isAuthor={false} handleClick={handleClick} />
             )) : (
-              <div className="text-2xl text-gray-700 dark:text-gray-300">No quizzes found</div>
+              <div className="text-2xl text-gray-700 dark:text-gray-200">No quizzes found</div>
             )
           )}
         </div>

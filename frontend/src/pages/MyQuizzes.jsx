@@ -97,7 +97,7 @@ const MyQuizzes = () => {
             quizzes.length ? quizzes.map((quiz) => (
               <QuizListItem key={quiz._id} id={quiz._id} quiz={quiz} isAuthor={true} handleClick={handleClick} handleLock={handleLock} />
             )) : (
-              <div className="text-2xl text-gray-700 dark:text-gray-300">No quizzes found</div>
+              <div className="text-2xl text-gray-700 dark:text-gray-200">No quizzes found</div>
             )
           )}
         </div>
