@@ -9,7 +9,7 @@ const QuizListItem = ({ id, quiz, isAuthor, handleClick, handleLock }) => {
     >
       <div onClick={() => handleClick(id)} className="flex-1 cursor-pointer">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">{quiz.title}</h1>
-        <p className="text-lg text-gray-500">{quiz.authorId.name}</p>
+        <p className="text-lg text-gray-500 dark:text-gray-400">{quiz.authorId.name}</p>
       </div>
       {isAuthor ? (
           <button

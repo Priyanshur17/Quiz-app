@@ -140,7 +140,7 @@ const CreateQuizForm = () => {
           "Content-type": "application/json"
         }
       };
-      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/quiz/create`, { title, questions }, config);
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/quiz/create`, { title, questions, duration }, config);
       toast.success("Quiz created successfully");
       setTitle('');
       setQuestions([{
