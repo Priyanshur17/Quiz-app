@@ -256,10 +256,17 @@ class QuizController {
             const averageRating = attempts.length > 0 ? totalRatings / attempts.length : 0;
 
             const feedbackMessages = attempts.map(attempt => {
-                return {
-                    message: attempt.feedbackId.message,
-                    user: attempt.playerId.name,
-                };
+                if (attempt.feedbackId) {
+                    return {
+                        message: attempt.feedbackId.message,
+                        user: attempt.playerId.name,
+                    };
+                } else {
+                    return {
+                        message: '',
+                        user: attempt.playerId.name,
+                    };
+                }
             });
             
             return res.status(200).send({ success: true, averageRating: averageRating.toFixed(1), starCounts: ratingCounts, feedbackMessages });
