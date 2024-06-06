@@ -117,7 +117,7 @@ class UserController {
                 } catch (error) {
                     console.error('Error deleting unverified user:', error);
                 }
-            }, 60 * 1000);
+            }, 600 * 1000);
             
             const token = generateToken(newUser._id, '10m');
             const link = `${process.env.FRONTEND_URL}/verify-email/${newUser._id}/${token}`;
