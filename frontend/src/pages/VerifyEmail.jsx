@@ -13,8 +13,7 @@ const VerifyEmail = () => {
     const [loading, setLoading] = useState(false);
     const [isVerified, setIsVerified] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         setLoading(true);
         
         try {
@@ -38,7 +37,7 @@ const VerifyEmail = () => {
     
     useEffect(() => {
         handleSubmit();
-    }, [navigate])
+    }, [])
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
@@ -47,10 +46,11 @@ const VerifyEmail = () => {
                 <h1 className="text-3xl font-bold text-gray-700 dark:text-gray-200">Email Verification</h1>
             </div>
             <div className="mt-8">
-                <form method="POST" className="w-full px-6 py-8 bg-white dark:bg-gray-800 rounded-lg" onSubmit={handleSubmit} noValidate>
+                <form method="POST" className="w-full px-6 py-8 bg-white dark:bg-gray-800 rounded-lg" noValidate>
                     <div className="flex justify-center">
                         <button 
-                            type="submit" 
+                            type="button"
+                            onClick={handleSubmit} 
                             className={`w-28 h-12 ${loading ? 'bg-gray-200 dark:bg-gray-700' : 'bg-blue-600 dark:bg-blue-400 hover:bg-blue-700 dark:hover:bg-blue-300 text-white dark:text-black'} rounded-lg hover:scale-105 transition-colors duration-300`} 
                         >
                             {loading ? <ImSpinner2 size={22} className="mx-auto animate-spin dark:text-white" /> : isVerified ? 'Verified' : 'Not Verified'}
