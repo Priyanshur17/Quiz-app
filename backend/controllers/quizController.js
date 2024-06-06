@@ -23,7 +23,7 @@ const isValidQuestion = (question) => {
 class QuizController {
     static createQuiz = async (req, res) => {
         try {
-            const { title, questions } = req.body;
+            const { title, questions, duration } = req.body;
         
             if(!title) {
                 return res.status(400).send({ success: false, message: "Title is empty" });
@@ -32,7 +32,7 @@ class QuizController {
                 return res.status(400).send({ success: false, message: "please add atleast one question" });
             }
 
-            const newQuiz = new Quiz({ title, authorId: req.user._id});
+            const newQuiz = new Quiz({ title, authorId: req.user._id, duration});
 
             let validQuestions = [];
 
