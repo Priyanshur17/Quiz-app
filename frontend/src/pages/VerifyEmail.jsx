@@ -25,7 +25,7 @@ const VerifyEmail = () => {
             toast.success(data.message);
             setIsVerified(true);
             localStorage.setItem('userInfo', JSON.stringify(data.user));
-            setTimeout(()=>navigate('/auth'), 5000);
+            setTimeout(()=>navigate('/auth'), 1000);
         } 
         catch (error) {
             toast.error(error.response?.data?.message || "An error occurred");
