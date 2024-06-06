@@ -57,10 +57,10 @@ class UserController {
             const link = `${process.env.FRONTEND_URL}/reset-password/${user._id}/${token}`;
             const from = process.env.USER_EMAIL;
             const to = email;
-            const subject = "Reset Password"
-            const text = "Verify your email"
-            const html = `<p>Click <a href=${link}>here</a> to reset your password</p>
-            <P>This link is valid for 10 minutes</p>`;
+            const subject = "Quiz Master - Password Reset Email"
+            const text = "Reset your password"
+            const html = `<h3>Click <a href=${link}>here</a> to reset your password</h3>
+            <p>This link is valid for 10 minutes</p>`;
             sendMail(from, to, subject, text, html);
             return res.status(200).send({ success: true, message: "Reset Password link is sent to your email" })
         }   
@@ -123,9 +123,9 @@ class UserController {
             const link = `${process.env.FRONTEND_URL}/verify-email/${newUser._id}/${token}`;
             const from = process.env.USER_EMAIL;
             const to = email;
-            const subject = "Email Verification"
+            const subject = "Quiz Master - Verification Email"
             const text = "Verify your email"
-            const html = `<p>Click <a href=${link}>here</a> to verify your email</p>
+            const html = `<h3>Click <a href=${link}>here</a> to verify your email</h3>
             <P>This link is valid for 10 minutes</p>`;
             sendMail(from, to, subject, text, html);
             return res.status(201).send({ success: true, message: "User registration successful. Verify you email." })  

@@ -33,7 +33,7 @@ const ResetPasswordEmail = () => {
       });
       toast.success(data.message);
       setEmail('');
-      setTimeout(()=>navigate('/auth'), 5000);
+      setTimeout(()=>navigate('/auth'), 1000);
     } 
     catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
