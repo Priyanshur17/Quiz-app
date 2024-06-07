@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ContextProvider from './context/ContextProvider'
-import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import MyQuizzes from './pages/MyQuizzes'
 import AttemptedQuizzes from './pages/AttemptedQuizzes'
@@ -27,8 +26,8 @@ function App() {
   return (
     <BrowserRouter>
       <ContextProvider>
-        <Routes path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="my-quizzes" element={<MyQuizzes />} />
           <Route path="attempted-quizzes" element={<AttemptedQuizzes />} />
           <Route path="create-quiz" element={<CreateQuiz />} />
